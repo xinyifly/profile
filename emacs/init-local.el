@@ -15,6 +15,12 @@
 (set-fontset-font t 'unicode (font-spec :family "WenQuanYi Zen Hei Mono"))
 (setq face-font-rescale-alist '(("WenQuanYi Zen Hei Mono" . 1.2)))
 
+(setq org-latex-preview-ltxpng-directory "/tmp/ltxpng/")
+(add-hook 'org-mode-hook
+          (lambda () (plist-put org-format-latex-options :scale 2)))
+(add-hook 'org-mode-hook
+          (lambda () (local-unset-key (kbd "C-,"))))
+
 (menu-bar-mode -1)
 
 (add-hook 'c-mode-common-hook

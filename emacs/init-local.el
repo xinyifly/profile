@@ -15,6 +15,12 @@
 (define-key global-map (kbd "C-, t") 'ansi-term)
 (define-key global-map (kbd "C-, s") 'scratch)
 
+(setq org-mobile-directory "/root/Dropbox/MobileOrg")
+(setq org-directory "/root/Dropbox/Org")
+(setq org-mobile-files (list "/root/Dropbox/Org/notes.org"))
+(setq org-mobile-inbox-for-pull "/root/Dropbox/Org/inbox.org")
+(setq org-default-notes-file "/root/Dropbox/Org/notes.org")
+
 (set-face-attribute 'default nil :font "Noto Mono")
 (set-fontset-font t 'unicode (font-spec :family "WenQuanYi Zen Hei Mono"))
 (setq face-font-rescale-alist '(("WenQuanYi Zen Hei Mono" . 1.2)))

@@ -17,6 +17,7 @@
 
 (setq org-mobile-directory "/root/Dropbox/MobileOrg")
 (setq org-directory "/root/Dropbox/Org")
+(setq org-agenda-files (list "/root/Dropbox/Org/notes.org"))
 (setq org-mobile-files (list "/root/Dropbox/Org/notes.org"))
 (setq org-mobile-inbox-for-pull "/root/Dropbox/Org/inbox.org")
 (setq org-default-notes-file "/root/Dropbox/Org/notes.org")

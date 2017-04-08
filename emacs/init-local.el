@@ -49,5 +49,14 @@
 (add-hook 'c-mode-common-hook
           (lambda () (c-set-offset 'case-label '+)))
 
+(defun executable-interpret-on-region (command)
+  "Run `executable-interpret' with region text as COMMAND."
+  (interactive (list (read-string "Run Script: "
+                                  (buffer-substring (mark) (point)))))
+  (executable-interpret command))
+(add-hook 'sh-mode-hook
+          (lambda () (define-key sh-mode-map (kbd "C-c C-x")
+                  'executable-interpret-on-region)))
+
 (provide 'init-local)
 ;;; init-local.el ends here

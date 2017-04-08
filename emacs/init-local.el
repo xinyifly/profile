@@ -8,12 +8,15 @@
 (require-package 'nginx-mode)
 (require-package 'graphviz-dot-mode)
 (require-package 'ace-jump-mode)
+(require-package 'restclient)
+(require-package 'tldr)
 
 (define-key global-map (kbd "C-, C-,") 'ace-jump-mode)
 (define-key global-map (kbd "C-, r") 'rename-buffer)
 (define-key global-map (kbd "C-, e") 'eshell)
 (define-key global-map (kbd "C-, t") 'ansi-term)
 (define-key global-map (kbd "C-, s") 'scratch)
+(define-key global-map (kbd "C-, i") 'imenu)
 
 (setq org-mobile-directory "/root/Dropbox/MobileOrg")
 (setq org-directory "/root/Dropbox/Org")

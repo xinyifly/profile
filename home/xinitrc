@@ -37,6 +37,6 @@ export GTK_IM_MODULE="scim"
 export QT_IM_MODULE="scim"
 scim -d
 
-pkill ssh-agent ; eval $(ssh-agent)
+/usr/lib/notification-daemon-1.0/notification-daemon &
 
 exec stumpwm

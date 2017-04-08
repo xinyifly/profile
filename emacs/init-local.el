@@ -32,6 +32,16 @@
 (add-hook 'org-mode-hook
           (lambda () (local-unset-key (kbd "C-,"))))
 
+(add-hook 'org-pomodoro-started-hook
+          (lambda ()
+            (setq-default header-line-format
+                          '("" org-pomodoro-mode-line org-mode-line-string))
+            (delete 'org-mode-line-string global-mode-string)
+            (delete 'org-pomodoro-mode-line global-mode-string)))
+
+(add-hook 'org-pomodoro-finished-hook
+          (lambda () (notifications-notify :title "Pomodoro" :body "Time is up")))
+
 (menu-bar-mode -1)
 
 (add-hook 'c-mode-common-hook

@@ -46,6 +46,8 @@
 
 (add-hook 'c-mode-common-hook
           (lambda () (c-toggle-hungry-state 1)))
+(add-hook 'c-mode-common-hook
+          (lambda () (c-set-offset 'case-label '+)))
 
 (provide 'init-local)
 ;;; init-local.el ends here

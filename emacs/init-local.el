@@ -10,8 +10,10 @@
 (require-package 'graphviz-dot-mode)
 (require-package 'restclient)
 (require-package 'tldr)
+(require-package 'docker)
 
 ;;; key
+(global-set-key "\C-s" 'swiper)
 (define-key global-map (kbd "C-, c") 'avy-goto-char)
 (define-key global-map (kbd "C-, l") 'avy-goto-line)
 (define-key global-map (kbd "C-, r") 'rename-buffer)
@@ -19,13 +21,34 @@
 (define-key global-map (kbd "C-, t") 'ansi-term)
 (define-key global-map (kbd "C-, s") 'scratch)
 (define-key global-map (kbd "C-, i") 'imenu)
+(define-key global-map (kbd "C-, p") 'org-pomodoro)
+(global-unset-key (kbd "C-z"))
 
 ;;; ui
+(setq desktop-save nil)
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;; font
 (set-face-attribute 'default nil :font "Noto Mono")
 (set-fontset-font t 'unicode (font-spec :family "WenQuanYi Zen Hei Mono"))
 (setq face-font-rescale-alist '(("WenQuanYi Zen Hei Mono" . 1.2)))
+
+;;; recentf
+(defun recentd-track-opened-file ()
+  "Insert the name of the directory just opened into the recent list."
+  (and (derived-mode-p 'dired-mode) default-directory
+       (recentf-add-file default-directory))
+  ;; Must return nil because it is run from `write-file-functions'.
+  nil)
+
+(defun recentd-track-closed-file ()
+  "Update the recent list when a dired buffer is killed.
+That is, remove a non kept dired from the recent list."
+  (and (derived-mode-p 'dired-mode) default-directory
+       (recentf-remove-if-non-kept default-directory)))
+
+(add-hook 'dired-after-readin-hook 'recentd-track-opened-file)
+(add-hook 'kill-buffer-hook 'recentd-track-closed-file)
 
 ;;; org
 (setq org-latex-preview-ltxpng-directory "/tmp/ltxpng/")
@@ -56,8 +79,12 @@
 ;;; code
 (add-hook 'c-mode-common-hook
           (lambda () (c-toggle-hungry-state 1)))
-(add-hook 'c-mode-common-hook
-          (lambda () (c-set-offset 'case-label '+)))
+
+;; php
+(setq geben-path-mappings
+      '(("/root/git/BTCChina/btcchina-docker-compose/btcchina"
+         "/var/www/btcchina")))
+(add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
 
 ;; sh
 (defun executable-interpret-on-region (command)
@@ -68,6 +95,9 @@
 (add-hook 'sh-mode-hook
           (lambda () (define-key sh-mode-map (kbd "C-c C-x")
                   'executable-interpret-on-region)))
+
+;; js
+(setq js2-strict-missing-semi-warning nil)
 
 (provide 'init-local)
 ;;; init-local.el ends here

@@ -7,11 +7,11 @@
 (require-package 'dockerfile-mode)
 (require-package 'nginx-mode)
 (require-package 'graphviz-dot-mode)
-(require-package 'ace-jump-mode)
 (require-package 'restclient)
 (require-package 'tldr)
 
-(define-key global-map (kbd "C-, C-,") 'ace-jump-mode)
+(define-key global-map (kbd "C-, c") 'avy-goto-char)
+(define-key global-map (kbd "C-, l") 'avy-goto-line)
 (define-key global-map (kbd "C-, r") 'rename-buffer)
 (define-key global-map (kbd "C-, e") 'eshell)
 (define-key global-map (kbd "C-, t") 'ansi-term)

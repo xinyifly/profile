@@ -33,6 +33,23 @@
 (set-fontset-font t 'unicode (font-spec :family "WenQuanYi Zen Hei Mono"))
 (setq face-font-rescale-alist '(("WenQuanYi Zen Hei Mono" . 1.2)))
 
+;;; recentf
+(defun recentd-track-opened-file ()
+  "Insert the name of the directory just opened into the recent list."
+  (and (derived-mode-p 'dired-mode) default-directory
+       (recentf-add-file default-directory))
+  ;; Must return nil because it is run from `write-file-functions'.
+  nil)
+
+(defun recentd-track-closed-file ()
+  "Update the recent list when a dired buffer is killed.
+That is, remove a non kept dired from the recent list."
+  (and (derived-mode-p 'dired-mode) default-directory
+       (recentf-remove-if-non-kept default-directory)))
+
+(add-hook 'dired-after-readin-hook 'recentd-track-opened-file)
+(add-hook 'kill-buffer-hook 'recentd-track-closed-file)
+
 ;;; org
 (setq org-latex-preview-ltxpng-directory "/tmp/ltxpng/")
 (add-hook 'org-mode-hook

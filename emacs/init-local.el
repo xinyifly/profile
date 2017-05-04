@@ -60,8 +60,12 @@
 ;;; code
 (add-hook 'c-mode-common-hook
           (lambda () (c-toggle-hungry-state 1)))
-(add-hook 'c-mode-common-hook
-          (lambda () (c-set-offset 'case-label '+)))
+
+;; php
+(setq geben-path-mappings
+      '(("/root/git/BTCChina/btcchina-docker-compose/btcchina"
+         "/var/www/btcchina")))
+(add-hook 'php-mode-hook 'php-enable-psr2-coding-style)
 
 ;; sh
 (defun executable-interpret-on-region (command)

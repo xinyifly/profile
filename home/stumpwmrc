@@ -1,3 +1,3 @@
 (set-prefix-key (kbd "F20"))
 
-(define-key *root-map* (kbd "'") "windowlist")
+(sb-posix:putenv (format nil "~A=~A" "SBCL_HOME" "/usr/lib/sbcl"))

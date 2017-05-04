@@ -73,5 +73,8 @@
           (lambda () (define-key sh-mode-map (kbd "C-c C-x")
                   'executable-interpret-on-region)))
 
+;; js
+(setq js2-strict-missing-semi-warning nil)
+
 (provide 'init-local)
 ;;; init-local.el ends here

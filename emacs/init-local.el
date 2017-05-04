@@ -10,6 +10,7 @@
 (require-package 'graphviz-dot-mode)
 (require-package 'restclient)
 (require-package 'tldr)
+(require-package 'docker)
 
 ;;; key
 (define-key global-map (kbd "C-, c") 'avy-goto-char)

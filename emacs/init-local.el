@@ -25,6 +25,8 @@
 (global-unset-key (kbd "C-z"))
 
 ;;; ui
+(setq desktop-save nil)
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;; font
 (set-face-attribute 'default nil :font "Noto Mono")

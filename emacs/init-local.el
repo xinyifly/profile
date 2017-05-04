@@ -13,6 +13,7 @@
 (require-package 'docker)
 
 ;;; key
+(global-set-key "\C-s" 'swiper)
 (define-key global-map (kbd "C-, c") 'avy-goto-char)
 (define-key global-map (kbd "C-, l") 'avy-goto-line)
 (define-key global-map (kbd "C-, r") 'rename-buffer)
@@ -20,6 +21,8 @@
 (define-key global-map (kbd "C-, t") 'ansi-term)
 (define-key global-map (kbd "C-, s") 'scratch)
 (define-key global-map (kbd "C-, i") 'imenu)
+(define-key global-map (kbd "C-, p") 'org-pomodoro)
+(global-unset-key (kbd "C-z"))
 
 ;;; ui
 

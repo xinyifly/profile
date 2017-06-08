@@ -34,6 +34,10 @@
 (set-fontset-font t 'unicode (font-spec :family "WenQuanYi Zen Hei Mono"))
 (setq face-font-rescale-alist '(("WenQuanYi Zen Hei Mono" . 1.2)))
 
+;;; alert
+(require-package 'alert)
+(setq alert-default-style 'notifications)
+
 ;;; recentf
 (defun recentd-track-opened-file ()
   "Insert the name of the directory just opened into the recent list."

@@ -37,6 +37,4 @@ export GTK_IM_MODULE="scim"
 export QT_IM_MODULE="scim"
 scim -d
 
-/usr/lib/notification-daemon-1.0/notification-daemon &
-
 exec awesome

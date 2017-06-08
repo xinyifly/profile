@@ -55,6 +55,12 @@ That is, remove a non kept dired from the recent list."
 (add-hook 'dired-after-readin-hook 'recentd-track-opened-file)
 (add-hook 'kill-buffer-hook 'recentd-track-closed-file)
 
+;;; elfeed
+(require-package 'elfeed)
+(define-key global-map (kbd "C-x w") 'elfeed)
+(setq elfeed-feeds
+      '("http://feeds.feedburner.com/ruanyifeng"))
+
 ;;; google
 ;; translate
 (require-package 'google-translate)

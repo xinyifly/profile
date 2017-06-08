@@ -18,6 +18,7 @@
 (define-key global-map (kbd "C-, r") 'rename-buffer)
 (define-key global-map (kbd "C-, e") 'eshell)
 (define-key global-map (kbd "C-, a") 'ansi-term)
+(define-key global-map (kbd "C-, t") 'google-translate-smooth-translate)
 (define-key global-map (kbd "C-, s") 'swiper)
 (define-key global-map (kbd "C-, g") 'counsel-git-grep)
 (define-key global-map (kbd "C-, i") 'counsel-imenu)
@@ -49,6 +50,12 @@ That is, remove a non kept dired from the recent list."
 
 (add-hook 'dired-after-readin-hook 'recentd-track-opened-file)
 (add-hook 'kill-buffer-hook 'recentd-track-closed-file)
+
+;;; google
+;; translate
+(require-package 'google-translate)
+(setq google-translate-translation-directions-alist
+      '(("en" . "zh-CN") ("zh-CN" . "en")))
 
 ;;; org
 (setq org-latex-preview-ltxpng-directory "/tmp/ltxpng/")

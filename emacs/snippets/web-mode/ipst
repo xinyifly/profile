@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ipst
+# key: ipst
+# --
+import { withStyles, createStyleSheet } from 'material-ui/styles';

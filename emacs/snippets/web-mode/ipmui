@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ipmui
+# key: ipmui
+# --
+import $1 from 'material-ui/$0';

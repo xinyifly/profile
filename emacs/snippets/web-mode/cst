@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: cst
+# key: cst
+# --
+const styleSheet = createStyleSheet('$1', () => ({
+  $0
+}));

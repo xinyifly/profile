@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: vs
+# key: vs
+# --
+version: '$1'
+services:
+  $0

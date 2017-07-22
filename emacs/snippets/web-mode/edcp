@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: edcp
+# key: edcp
+# --
+export default class $1 extends Component {
+  $0
+}

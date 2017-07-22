@@ -145,6 +145,23 @@ That is, remove a non kept dired from the recent list."
 (add-hook 'c-mode-common-hook
           (lambda () (c-toggle-hungry-state 1)))
 
+(require-package 'yasnippet)
+(require-package 'react-snippets)
+(yas-global-mode 1)
+
+;; web-mode
+(require-package 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.[jt]s[x]?\\'" . web-mode))
+(setq web-mode-content-types-alist
+      '(("jsx" . "\\.[jt]s[x]?\\'")))
+(setq web-mode-markup-indent-offset 2
+      web-mode-attr-indent-offset 2
+      web-mode-attr-value-indent-offset 2
+      web-mode-css-indent-offset 2
+      web-mode-code-indent-offset 2)
+(setq web-mode-enable-auto-quoting nil)
+(add-hook 'web-mode-hook 'tern-mode)
+
 ;; php
 (setq geben-path-mappings
       '(("/root/git/BTCChina/btcchina-docker-compose/btcchina"

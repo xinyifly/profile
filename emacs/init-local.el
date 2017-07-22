@@ -145,6 +145,10 @@ That is, remove a non kept dired from the recent list."
 (add-hook 'c-mode-common-hook
           (lambda () (c-toggle-hungry-state 1)))
 
+(require-package 'yasnippet)
+(require-package 'react-snippets)
+(yas-global-mode 1)
+
 ;; php
 (setq geben-path-mappings
       '(("/root/git/BTCChina/btcchina-docker-compose/btcchina"

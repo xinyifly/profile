@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: iprf
+# key: iprf
+# --
+import { reduxForm, Field, SubmissionError } from 'redux-form';

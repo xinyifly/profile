@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ipmtb
+# key: ipmtb
+# --
+import Table, {
+  TableHead, TableBody, TableRow, TableCell
+} from 'material-ui/Table';

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: fm
+# key: fm
+# --
+<FormattedMessage id="$0" />

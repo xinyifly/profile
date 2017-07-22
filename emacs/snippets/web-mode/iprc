@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: iprc
+# key: iprc
+# --
+import React, { Component } from 'react';

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: edcl
+# key: edcl
+# --
+export default class $1 {
+  $0
+}

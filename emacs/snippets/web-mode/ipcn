@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ipcn
+# key: ipcn
+# --
+import { connect } from 'react-redux';

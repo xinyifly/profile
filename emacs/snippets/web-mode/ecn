@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ecn
+# key: ecn
+# --
+export const $0;

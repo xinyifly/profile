@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ipit
+# key: ipit
+# --
+import { IntlProvider, FormattedMessage } from 'react-intl';

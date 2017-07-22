@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: itpv
+# key: itpv
+# --
+<IntlProvider locale={locale} messages={messages[locale]}>
+</IntlProvider>

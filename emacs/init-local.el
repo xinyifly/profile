@@ -55,6 +55,45 @@ That is, remove a non kept dired from the recent list."
 (add-hook 'dired-after-readin-hook 'recentd-track-opened-file)
 (add-hook 'kill-buffer-hook 'recentd-track-closed-file)
 
+;;; Prodigy
+(require-package 'prodigy)
+(prodigy-define-service
+  :name "docker"
+  :command "systemctl"
+  :args '("--wait" "start" "docker")
+  :tags '(systemd))
+(prodigy-define-service
+  :name "Wifi"
+  :command "systemctl"
+  :args '("--wait" "start" "netctl-auto@wlp2s0")
+  :tags '(systemd))
+(prodigy-define-service
+  :name "ss-btcc-prod"
+  :command "systemctl"
+  :args '("--wait" "start" "shadowsocks-libev@btcc-prod")
+  :tags '(btcc-prod))
+(prodigy-define-service
+  :name "vpn-btcc-green"
+  :command "systemctl"
+  :args '("--wait" "start" "openvpn-client@btcc-green-zeyu2")
+  :tags '(btcc-prod))
+(prodigy-define-service
+  :name "cn2t-64-redir"
+  :command "systemctl"
+  :args '("--wait" "start" "shadowsocks-auto-redir@cn2t-64-redir")
+  :tags '(shadowsocks))
+(prodigy-define-service
+  :name "sg-189-redir"
+  :command "systemctl"
+  :args '("--wait" "start" "shadowsocks-auto-redir@sg-189-redir")
+  :tags '(shadowsocks))
+(prodigy-define-service
+  :name "niobium-frontend"
+  :command "docker-compose"
+  :args '("up")
+  :cwd "/root/git/BTCChina/niobium-frontend"
+  :tags '(docker))
+
 ;;; elfeed
 (require-package 'elfeed)
 (define-key global-map (kbd "C-x w") 'elfeed)

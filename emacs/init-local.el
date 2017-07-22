@@ -83,15 +83,24 @@ That is, remove a non kept dired from the recent list."
 (setq org-default-notes-file "/root/Dropbox/Org/notes.org")
 
 ;; org-pomodoro
-(add-hook 'org-pomodoro-started-hook
-          (lambda ()
-            (setq-default header-line-format
-                          '("" org-pomodoro-mode-line org-mode-line-string))
-            (delete 'org-mode-line-string global-mode-string)
-            (delete 'org-pomodoro-mode-line global-mode-string)))
-
-(add-hook 'org-pomodoro-finished-hook
-          (lambda () (notifications-notify :title "Pomodoro" :body "Time is up")))
+(defun org-pomodoro-running ()
+  "Pomodoro start hook."
+  (setq-default header-line-format
+                '("" org-pomodoro-mode-line org-mode-line-string))
+  (delete 'org-mode-line-string global-mode-string)
+  (delete 'org-pomodoro-mode-line global-mode-string))
+(defun org-pomodoro-stopped ()
+  "Pomodoro end hook."
+  (setq-default header-line-format
+                '(""
+                  (:eval (propertize "NOT IN POMODORO" 'face
+                                     (list :background "red"
+                                           :foreground "white"
+                                           ))))))
+(add-hook 'org-pomodoro-started-hook 'org-pomodoro-running)
+(add-hook 'org-pomodoro-finished-hook 'org-pomodoro-stopped)
+(add-hook 'org-pomodoro-killed-hook 'org-pomodoro-stopped)
+(org-pomodoro-stopped)
 
 ;;; code
 (add-hook 'c-mode-common-hook
